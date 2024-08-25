@@ -11,11 +11,11 @@ trait Permissions
     */
     public function permissions()
     {
-        $settings = ['mng-users','mng-roles'];
-
-        $permissions=array_merge(
-            $settings,
-        );
+        $permissions = [
+            ['name' => 'mng-roles', 'display_name' => 'Manage Roles', 'group' => 'Settings'],
+            ['name' => 'mng-users', 'display_name' => 'Manage Users', 'group' => 'Settings'],
+            // Add more permissions with groups
+        ];
 
         return $permissions;
     }

@@ -13,7 +13,6 @@ use App\Models\User;
 
 class RolesAndPermissionsTableSeeder extends Seeder
 {
-    
     use Permissions,Roles;
 
      /**
@@ -29,11 +28,10 @@ class RolesAndPermissionsTableSeeder extends Seeder
 
         foreach($permissions as $permission)
         {
-            if(!$this->permissionExists($permission)){
-                Permission::create(['name' => $permission]);
+            if(!$this->permissionExists($permission['name'])){
+                Permission::create($permission);
             }
         }
-
         
         if(!$this->roleExists('Administrator')) //Seed admin role and attach permissions
         {

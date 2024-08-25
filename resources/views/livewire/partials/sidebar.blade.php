@@ -62,6 +62,31 @@
               </li>
             </ul>
           </li>
+          <!--Settings-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Settings
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/roles" class="nav-link" wire:navigate>
+                  <i class="fa fa-lock nav-icon"></i>
+                  <p>Manage Roles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/users" class="nav-link" wire:navigate>
+                  <i class="fa fa-users nav-icon"></i>
+                  <p>Manage Users</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
