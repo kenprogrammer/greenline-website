@@ -12,6 +12,7 @@ use App\Livewire\Settings\Users\Users;
 use App\Livewire\Settings\Users\AddUser;
 use App\Livewire\Settings\Users\EditUser;
 use App\Livewire\Settings\Users\ChangePassword;
+use  App\Livewire\MyAccount\ChangePassword as ChangeMyPassword;
 
 //Auth
 Route::get('login',[LoginController::class,'showLogin']);
@@ -19,6 +20,7 @@ Route::post('login',[LoginController::class,'authenticate'])->name('login')->mid
 Route::post('logout',[LogoutController::class,'logout'])->middleware('auth');
 
 Route::get('/', Dashboard::class)->middleware('auth');
+Route::get('change-my-password',ChangeMyPassword::class)->middleware('auth');
 
 //Settings
 Route::get('/roles', Roles::class)->middleware('auth');
