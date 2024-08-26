@@ -18,4 +18,24 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE -->
     <script src="{{ asset('lte/js/adminlte.js') }}"></script>
+    <style>
+        /**
+         * For show and hide password icon
+         */
+        .input-group-addon {
+          cursor: pointer;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .input-group-addon a {
+            position: absolute;
+            top: 72%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #000;
+        }
+    </style>
 </head>

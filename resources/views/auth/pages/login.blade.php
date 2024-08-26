@@ -17,11 +17,17 @@
             </span>
        @endif
     </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your password">
+    <div class="form-group" id="show_hide_password">
+        <label for="password">Password:</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your password">
 
-       @if($errors->has('password'))
+        <div class="input-group-addon">
+            <a href="javascript:void(0);">
+                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        @if($errors->has('password'))
             <span style="color:red">
                 <strong>{{ $errors->first('password') }}</strong>
             </span>

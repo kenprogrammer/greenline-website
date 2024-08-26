@@ -32,9 +32,16 @@
             @endif
             <form wire:submit="changePassword">
                 <div class="box-body"> 
-                    <div class="form-group">
+                    <div class="form-group" id="show_hide_password">
                         <label>New Password<span style="color:red;">*</span></label>
                         <input type="password" class="form-control" wire:model="new_password" id="password" placeholder="New password">
+                        
+                        <div class="input-group-addon">
+                            <a href="javascript:void(0);">
+                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
                         @error('new_password') <span class="text-danger"><strong>{{ $message }}</strong></span> @enderror
                     </div>
                 </div><!-- /.box-body -->

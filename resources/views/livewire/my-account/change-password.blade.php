@@ -32,13 +32,21 @@
                         <div class="form-group">
                             <label>Current Password:<span style="color:red;">*</span></label>
                             <input type="password" wire:model="current_password" class="form-control" placeholder="Current Password" value="">
+
                             @error('current_password') <span class="text-danger"><strong>{{ $message }}</strong></span> @enderror
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group" id="show_hide_password">
                             <label>New Password:<span style="color:red;">*</span></label>
                             <input type="password" wire:model="new_password" class="form-control" placeholder="New Password" value="">
+
+                            <div class="input-group-addon">
+                                <a href="javascript:void(0);">
+                                    <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                </a>
+                            </div>
+
                             @error('new_password') <span class="text-danger"><strong>{{ $message }}</strong></span> @enderror
                         </div>
                     </div>
