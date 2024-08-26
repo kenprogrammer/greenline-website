@@ -4,9 +4,12 @@ namespace App\Livewire\Settings\Users;
 
 use Livewire\Component;
 use App\Models\User;
+use App\Traits\PasswordValidationTrait;
 
 class ChangePassword extends Component
 {
+    use PasswordValidationTrait;
+
     public $user_id;
     public $new_password;
     public $confirm_password;
@@ -26,6 +29,14 @@ class ChangePassword extends Component
             'new_password.required'=>'New Password is required',
             'confirm_password.required'=>'Password Confirmation is required'
         ]);
+
+        $errorMessage = $this->validatePassword($this->new_password);
+
+        if ($errorMessage) {
+            session()->flash('error', $errorMessage);
+
+            return;
+        }
 
         if($this->new_password!=$this->confirm_password){
 

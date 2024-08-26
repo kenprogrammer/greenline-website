@@ -6,9 +6,12 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Traits\PasswordValidationTrait;
 
 class ChangePassword extends Component
 {
+    use PasswordValidationTrait;
+
     public $current_password;
     public $new_password;
     public $confirm_password;
@@ -26,12 +29,18 @@ class ChangePassword extends Component
             'confirm_password.required'=>'Confirm password is required!',
         ]);
 
+        $errorMessage = $this->validatePassword($this->new_password);
+
         $id=Auth::user()->id;
         $user=User::where('id',$id)->first();
 
         if(!Hash::check($this->current_password, $user->password)) {
 
             session()->flash('error', 'You entered wrong Current password. Please try again!');
+
+        }elseif($errorMessage){
+
+            session()->flash('error', $errorMessage);
 
         }elseif($this->new_password!=$this->confirm_password){
 

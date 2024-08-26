@@ -6,10 +6,11 @@ use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
 use App\Traits\Users;
+use App\Traits\PasswordValidationTrait;
 
 class AddUser extends Component
 {
-    use Users;
+    use Users,PasswordValidationTrait;
 
     public $name;
     public $email;
@@ -54,6 +55,14 @@ class AddUser extends Component
 
             session()->flash('error', 'The username has already been taken!');
             
+            return;
+        }
+
+        $errorMessage = $this->validatePassword($this->password);
+
+        if ($errorMessage) {
+            session()->flash('error', $errorMessage);
+
             return;
         }
 
