@@ -12,14 +12,28 @@ use App\Livewire\Settings\Users\Users;
 use App\Livewire\Settings\Users\AddUser;
 use App\Livewire\Settings\Users\EditUser;
 use App\Livewire\Settings\Users\ChangePassword;
-use  App\Livewire\MyAccount\ChangePassword as ChangeMyPassword;
+use App\Livewire\MyAccount\ChangePassword as ChangeMyPassword;
+
+use App\Livewire\Frontend\Home;
+use App\Livewire\Frontend\About;
+use App\Livewire\Frontend\ContactUs;
+use App\Livewire\Frontend\NewsEvents;
+use App\Livewire\Frontend\NewsEventsShow;
+use App\Livewire\Frontend\Single;
+
+Route::get('/', Home::class);
+Route::get('/about', About::class);
+Route::get('/contact', ContactUs::class)->name('contact');
+Route::get('/news-events', NewsEvents::class)->name('news-events.index');
+Route::get('/news-events-show/{slug}', NewsEventsShow::class)->name('news-events.show');
+Route::get('/read-article', Single::class); //To be used later to read individual articles
 
 //Auth
 Route::get('login',[LoginController::class,'showLogin']);
 Route::post('login',[LoginController::class,'authenticate'])->name('login')->middleware(ProtectAgainstSpam::class);
 Route::post('logout',[LogoutController::class,'logout'])->middleware('auth');
 
-Route::get('/', Dashboard::class)->middleware('auth');
+Route::get('/admin/home', Dashboard::class)->middleware('auth');
 Route::get('change-my-password',ChangeMyPassword::class)->middleware('auth');
 
 //Settings

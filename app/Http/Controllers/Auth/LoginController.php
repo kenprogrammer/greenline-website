@@ -40,7 +40,7 @@ class LoginController extends Controller
         if (Auth::attempt(['username' => $username, 'password' => $password,'is_active' => 1])) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/admin/home');
         }
 
         return back()->withErrors([

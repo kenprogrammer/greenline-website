@@ -1,0 +1,219 @@
+
+        /* About Section */
+        .about-section {
+            padding: 100px 40px;
+            background: #fff;
+        }
+
+        .about-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 420px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .about-image i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 140px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            background: #008000;
+            color: #fff;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(244, 162, 97, 0.5);
+        }
+
+        .about-badge strong {
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .about-badge span {
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .about-text .eyebrow {
+            color: #008000;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+
+        .about-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .about-checklist {
+            list-style: none;
+            margin: 25px 0 35px;
+        }
+
+        .about-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .about-checklist i {
+            color: #008000;
+            margin-top: 3px;
+        }
+
+        /* Stats Strip */
+        .stats-strip {
+            background: #008000;
+            padding: 60px 40px;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 44px;
+            color: #f4a261;
+            margin-bottom: 8px;
+        }
+
+        .stat-item span {
+            color: #fff;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Why Choose Us */
+        .why-section {
+            padding: 100px 40px;
+            background: #f8f9fa;
+        }
+
+        .why-section h2 {
+            text-align: center;
+            font-size: 42px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .why-section .section-sub {
+            text-align: center;
+            color: #666;
+            max-width: 650px;
+            margin: 0 auto 60px;
+            line-height: 1.7;
+        }
+
+        .why-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 35px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #008000, #0FFF50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            margin: 0 auto 22px;
+        }
+
+        .why-card h3 {
+            color: #2c3e50;
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .why-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 320px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-text h2 {
+                font-size: 30px;
+            }
+
+            .stat-item strong {
+                font-size: 32px;
+            }
+        }

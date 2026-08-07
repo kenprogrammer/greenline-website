@@ -1,0 +1,236 @@
+/* News & Events — Listing Page */
+
+.news-events-section {
+    padding: 70px 40px 100px;
+    background: #f8f9fa;
+}
+
+.news-events-wrap {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Filter Tabs */
+.filter-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 45px;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    background: white;
+    border: 1px solid #008000;
+    color: #555;
+    padding: 11px 26px;
+    border-radius: 30px;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.filter-tab:hover {
+    border-color: #0FFF50;
+    color: #008000;
+}
+
+.filter-tab.active {
+    background: #008000;
+    border-color: #0FFF50;
+    color: #fff;
+}
+
+/* Grid */
+.news-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 35px;
+    transition: opacity 0.2s;
+}
+
+.news-events-grid.is-loading {
+    opacity: 0.4;
+}
+
+.post-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    transition: all 0.35s;
+    text-decoration: none;
+    display: block;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.post-thumb {
+    height: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.post-thumb i {
+    font-size: 70px;
+    color: rgba(255,255,255,0.35);
+}
+
+.post-thumb-news {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.post-thumb-event {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.post-type-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: white;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(4px);
+}
+
+.post-body {
+    padding: 26px 26px 28px;
+}
+
+.post-date {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.post-body h3 {
+    color: #2c3e50;
+    font-size: 19px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.post-body p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.post-readmore {
+    color: #008000;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.25s;
+}
+
+.post-card:hover .post-readmore {
+    gap: 12px;
+}
+
+/* Empty state */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state i {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+/* Pagination — matches resources/views/partials/pagination.blade.php.
+   Plain class names, no framework markup, no structural guessing. */
+
+.news-pagination {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.pager {
+    display: inline-flex;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.pager-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    background: #fff;
+    text-decoration: none;
+    border-left: 1px solid #eee;
+    transition: all 0.2s;
+}
+
+.pager-btn:first-child {
+    border-left: none;
+}
+
+.pager-btn:hover {
+    background: #0FFF50;
+    color: #fff;
+}
+
+.pager-btn.is-current {
+    background: #008000;
+    color: #fff;
+    font-weight: 700;
+}
+
+.pager-btn.is-disabled {
+    color: #ccc;
+    cursor: default;
+}
+
+.pager-summary {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .pager-btn {
+        min-width: 34px;
+        height: 34px;
+        padding: 0 10px;
+        font-size: 13px;
+    }
+}
+@media (max-width: 768px) {
+    .news-events-grid {
+        grid-template-columns: 1fr;
+    }
+}
