@@ -13,6 +13,9 @@ use App\Livewire\Settings\Users\AddUser;
 use App\Livewire\Settings\Users\EditUser;
 use App\Livewire\Settings\Users\ChangePassword;
 use App\Livewire\MyAccount\ChangePassword as ChangeMyPassword;
+use App\Livewire\Content\Services\Services;
+use App\Livewire\Content\Services\AddService;
+use App\Livewire\Content\Services\EditService;
 
 use App\Livewire\Frontend\Home;
 use App\Livewire\Frontend\About;
@@ -27,6 +30,14 @@ Route::get('/contact', ContactUs::class)->name('contact');
 Route::get('/news-events', NewsEvents::class)->name('news-events.index');
 Route::get('/news-events-show/{slug}', NewsEventsShow::class)->name('news-events.show');
 Route::get('/read-article', Single::class); //To be used later to read individual articles
+
+/**
+ * Manage Website Content
+ */
+// Services
+Route::get('/admin/services', Services::class)->middleware('auth');
+Route::get('/admin/services/create', AddService::class)->middleware('auth');
+Route::get('/admin/services/edit/{id}', EditService::class)->middleware('auth');
 
 //Auth
 Route::get('login',[LoginController::class,'showLogin']);

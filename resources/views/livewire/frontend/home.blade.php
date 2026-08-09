@@ -2,6 +2,7 @@
     @once
         @push('page-styles')
             <link rel="stylesheet" href="{{ asset('frontend/css/slider.css') }}">
+            <link rel="stylesheet" href="{{ asset('frontend/css/services.css') }}">
         @endpush
     @endonce
     
@@ -18,6 +19,7 @@
                 <div class="service-content">
                     <h3>Sea Freight</h3>
                     <p>Comprehensive sea freight solutions for your international cargo needs. We handle full container loads and less than container loads with efficiency and care.</p>
+                    <span class="service-readmore">Read More <i class="fas fa-arrow-right"></i></span>
                 </div>
             </div>
 

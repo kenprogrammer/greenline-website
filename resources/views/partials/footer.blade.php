@@ -26,5 +26,50 @@
         });
     });
 </script>
+<!--ckEditor-->
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "{{ asset('plugins/ckeditor5/ckeditor5.js') }}",
+            "ckeditor5/": "{{ asset('plugins/ckeditor5/') }}"
+        }
+    }
+</script>
+<script type="module">
+   import {
+        ClassicEditor,
+        Essentials,
+        Paragraph,
+        Bold,
+        Italic,
+        Font
+    } from 'ckeditor5';
+
+    const editorEl = document.querySelector('#editor');
+
+    ClassicEditor
+        .create( {
+            attachTo: editorEl,
+            licenseKey: 'GPL', // Or <YOUR_LICENSE_KEY>
+            plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
+            toolbar: [
+                'undo', 'redo', '|', 'bold', 'italic', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+            ],
+            licenseKey: 'GPL'
+        } )
+        .then( editor => {
+            window.editor = editor;
+
+            // Optional: Sync with Livewire if needed
+            editor.model.document.on('change:data', () => {
+                const component = Livewire.find(editorEl.closest('[wire\\:id]').getAttribute('wire:id'));
+                component.set('post_content', editor.getData());
+            });
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 </body>
 </html>

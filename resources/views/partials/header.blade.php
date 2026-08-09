@@ -18,6 +18,9 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE -->
     <script src="{{ asset('lte/js/adminlte.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('plugins/ckeditor5/ckeditor5.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/ckeditor5/ckeditor5-content.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/ckeditor5/ckeditor5-editor.css') }}">
     <style>
         /**
          * For show and hide password icon

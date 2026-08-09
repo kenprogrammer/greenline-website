@@ -25,7 +25,7 @@
                with font-awesome or any other icon font library -->
          
           <li class="nav-item">
-            <a href="/" class="nav-link" wire:navigate>
+            <a href="/admin/home" class="nav-link" wire:navigate>
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Home
@@ -33,6 +33,36 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Content
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/services" class="nav-link" wire:navigate>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Services</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Submenu 2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Submenu 3</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+           <!--<li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -61,7 +91,8 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li>-->
+
           <!--Settings-->
           <li class="nav-item">
             <a href="#" class="nav-link">
