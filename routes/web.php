@@ -22,14 +22,14 @@ use App\Livewire\Frontend\About;
 use App\Livewire\Frontend\ContactUs;
 use App\Livewire\Frontend\NewsEvents;
 use App\Livewire\Frontend\NewsEventsShow;
-use App\Livewire\Frontend\Single;
+use App\Livewire\Frontend\ServicesShow;
 
 Route::get('/', Home::class);
 Route::get('/about', About::class);
 Route::get('/contact', ContactUs::class)->name('contact');
 Route::get('/news-events', NewsEvents::class)->name('news-events.index');
 Route::get('/news-events-show/{slug}', NewsEventsShow::class)->name('news-events.show');
-Route::get('/read-article', Single::class); //To be used later to read individual articles
+Route::get('/services-show/{slug}', ServicesShow::class)->name('services.show');
 
 /**
  * Manage Website Content

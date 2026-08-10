@@ -11,3 +11,71 @@
 .service-card:hover .service-readmore {
     gap: 12px;
 }
+
+/* Pagination */
+.services-pagination {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.pager {
+    display: inline-flex;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.pager-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+    background: #fff;
+    text-decoration: none;
+    border-left: 1px solid #eee;
+    transition: all 0.2s;
+}
+
+.pager-btn:first-child {
+    border-left: none;
+}
+
+.pager-btn:hover {
+    background: #0FFF50;
+    color: #fff;
+}
+
+.pager-btn.is-current {
+    background: #008000;
+    color: #fff;
+    font-weight: 700;
+}
+
+.pager-btn.is-disabled {
+    color: #ccc;
+    cursor: default;
+}
+
+.pager-summary {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .pager-btn {
+        min-width: 34px;
+        height: 34px;
+        padding: 0 10px;
+        font-size: 13px;
+    }
+}
