@@ -5,23 +5,15 @@
         @endpush
     @endonce
 
-     <!-- Page Header -->
-    <!--<section class="page-header">
-        <div class="page-header-content">
-            <h1>About Us</h1>
-            <div class="breadcrumb">
-                <a href="index.html">Home</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>About Us</span>
-            </div>
-        </div>
-    </section>-->
-
     <!-- About Section -->
     <section class="about-section">
         <div class="about-grid">
             <div class="about-image">
-                <i class="fas fa-warehouse"></i>
+                @if(empty($about->assoc_image))
+                    <i class="fas fa-warehouse"></i>
+                @else
+                     <img src="{{ asset('storage/media/posts/' . $about->assoc_image) }}" alt="About Us Image"  style="width: 100%; height: 100%; object-fit: cover;">
+                @endif
                 <div class="about-badge">
                     <strong>15+</strong>
                     <span>YEARS</span>
@@ -29,15 +21,9 @@
             </div>
             <div class="about-text">
                 <span class="eyebrow">Who We Are</span>
-                <h2>Your Trusted Partner In Clearance &amp; Forwarding</h2>
-                <p>Regal Solution has spent over a decade helping importers and exporters move goods across borders without the usual headaches. From a single desk handling local clearances, we've grown into a full-service logistics partner trusted by businesses across Mumbai and beyond.</p>
-                <p>We believe freight forwarding should be predictable, transparent and fast. That philosophy shapes every shipment we touch, whether it's a single pallet flying out tonight or a full container load crossing the ocean.</p>
-                <ul class="about-checklist">
-                    <li><i class="fas fa-circle-check"></i> Licensed customs house agents with deep regulatory expertise</li>
-                    <li><i class="fas fa-circle-check"></i> End-to-end visibility from pickup to final delivery</li>
-                    <li><i class="fas fa-circle-check"></i> Dedicated account managers for every client</li>
-                </ul>
-                <a href="contact.html" class="cta-button">Talk To Our Team</a>
+                <h2>{{ $about->title }}</h2>
+                {!! $about->content !!}<br><br><br>
+                <a href="/contact" class="cta-button" wire:navigate>Talk To Our Team</a>
             </div>
         </div>
     </section>
@@ -66,7 +52,7 @@
 
     <!-- Why Choose Us -->
     <section class="why-section">
-        <h2>Why Choose Regal Solution</h2>
+        <h2>Why Choose Us</h2>
         <p class="section-sub">We combine regulatory know-how with a service mindset, so your cargo moves without surprises.</p>
         <div class="why-grid">
             <div class="why-card">

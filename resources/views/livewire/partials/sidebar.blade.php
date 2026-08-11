@@ -48,9 +48,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/admin/about-us" class="nav-link" wire:navigate>
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Submenu 2</p>
+                  <p>About Us</p>
                 </a>
               </li>
               <li class="nav-item">

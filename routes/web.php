@@ -16,6 +16,7 @@ use App\Livewire\MyAccount\ChangePassword as ChangeMyPassword;
 use App\Livewire\Content\Services\Services;
 use App\Livewire\Content\Services\AddService;
 use App\Livewire\Content\Services\EditService;
+use App\Livewire\Content\Pages\AboutPage;
 
 use App\Livewire\Frontend\Home;
 use App\Livewire\Frontend\About;
@@ -38,6 +39,7 @@ Route::get('/services-show/{slug}', ServicesShow::class)->name('services.show');
 Route::get('/admin/services', Services::class)->middleware('auth');
 Route::get('/admin/services/create', AddService::class)->middleware('auth');
 Route::get('/admin/services/edit/{id}', EditService::class)->middleware('auth');
+Route::get('/admin/about-us', AboutPage::class)->middleware('auth');
 
 //Auth
 Route::get('login',[LoginController::class,'showLogin']);
