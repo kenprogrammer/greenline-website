@@ -13,6 +13,9 @@ use App\Livewire\Settings\Users\AddUser;
 use App\Livewire\Settings\Users\EditUser;
 use App\Livewire\Settings\Users\ChangePassword;
 use App\Livewire\MyAccount\ChangePassword as ChangeMyPassword;
+use App\Livewire\Content\Banners\ListBanners;
+use App\Livewire\Content\Banners\AddBanner;
+use App\Livewire\Content\Banners\EditBanner;
 use App\Livewire\Content\Services\Services;
 use App\Livewire\Content\Services\AddService;
 use App\Livewire\Content\Services\EditService;
@@ -36,6 +39,9 @@ Route::get('/services-show/{slug}', ServicesShow::class)->name('services.show');
  * Manage Website Content
  */
 // Services
+Route::get('/admin/banners', ListBanners::class)->middleware('auth');
+Route::get('/admin/banners/create', AddBanner::class)->middleware('auth');
+Route::get('/banners/edit/{banner_id}',EditBanner::class)->middleware('auth');
 Route::get('/admin/services', Services::class)->middleware('auth');
 Route::get('/admin/services/create', AddService::class)->middleware('auth');
 Route::get('/admin/services/edit/{id}', EditService::class)->middleware('auth');

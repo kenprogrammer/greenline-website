@@ -42,6 +42,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="/admin/banners" class="nav-link" wire:navigate>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Banners</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="/admin/services" class="nav-link" wire:navigate>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Services</p>

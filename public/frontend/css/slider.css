@@ -18,18 +18,22 @@
             left: 0;
             width: 100%;
             height: 100%;
+
             display: flex;
             align-items: center;
+
             opacity: 0;
             visibility: hidden;
+
             transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
+
+            overflow: hidden;
         }
 
         .slide.active {
             opacity: 1;
             visibility: visible;
+            z-index: 2;
         }
 
         .slide::before {
@@ -42,48 +46,41 @@
             z-index: 1;
         }
 
-        .slide-1 {
-            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"><rect fill="%23e9c46a" width="1600" height="900"/></svg>');
-        }
-        .slide-1::before {
-            background: linear-gradient(135deg, rgba(241, 196, 15, 0.3) 0%, rgba(243, 156, 18, 0.5) 100%);
-        }
+        .banner-image {
+            position: absolute;
+            top: 0;
+            left: 0;
 
-        .slide-2 {
-            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"><rect fill="%234facfe" width="1600" height="900"/></svg>');
-        }
-        .slide-2::before {
-            background: linear-gradient(135deg, rgba(33, 150, 243, 0.3) 0%, rgba(0, 188, 212, 0.5) 100%);
-        }
+            width: 100%;
+            height: 100%;
 
-        .slide-3 {
-            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900"><rect fill="%23fa709a" width="1600" height="900"/></svg>');
-        }
-        .slide-3::before {
-            background: linear-gradient(135deg, rgba(250, 112, 154, 0.3) 0%, rgba(254, 225, 64, 0.5) 100%);
+            object-fit: cover;
+            object-position: center;
+
+            z-index: 0;
         }
 
         .hero-content {
+            position: relative;
+
+            width: 100%;
             max-width: 1400px;
+
             margin: 0 auto;
             padding: 0 40px;
-            position: relative;
+
             z-index: 2;
-            width: 100%;
         }
 
         .slide h2 {
-            color: #333;
+            color: #0FFF50;
             font-size: 28px;
             font-weight: 400;
             margin-bottom: 15px;
         }
 
         .slide h1 {
-            color: #2c3e50;
+            color: #FFFF00;
             font-size: 56px;
             font-weight: 700;
             margin-bottom: 40px;
@@ -110,7 +107,7 @@
             transform: translateY(-50%);
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.85);
+            background: #FFFF00;
             border: none;
             border-radius: 50%;
             display: flex;
@@ -150,7 +147,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
+            background: #FF0000;
             border: 2px solid rgba(255,255,255,0.8);
             cursor: pointer;
             transition: all 0.3s;
