@@ -19,6 +19,9 @@ use App\Livewire\Content\Banners\EditBanner;
 use App\Livewire\Content\Services\Services;
 use App\Livewire\Content\Services\AddService;
 use App\Livewire\Content\Services\EditService;
+use App\Livewire\Content\NewsEvents\ListPosts;
+use App\Livewire\Content\NewsEvents\AddPost;
+use App\Livewire\Content\NewsEvents\EditPost;
 use App\Livewire\Content\Pages\AboutPage;
 
 use App\Livewire\Frontend\Home;
@@ -45,6 +48,9 @@ Route::get('/banners/edit/{banner_id}',EditBanner::class)->middleware('auth');
 Route::get('/admin/services', Services::class)->middleware('auth');
 Route::get('/admin/services/create', AddService::class)->middleware('auth');
 Route::get('/admin/services/edit/{id}', EditService::class)->middleware('auth');
+Route::get('/admin/posts', ListPosts::class)->middleware('auth');
+Route::get('/admin/posts/create', AddPost::class)->middleware('auth');
+Route::get('/admin/posts/edit/{id}', EditPost::class)->middleware('auth');
 Route::get('/admin/about-us', AboutPage::class)->middleware('auth');
 
 //Auth

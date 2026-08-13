@@ -5,18 +5,6 @@
 @endonce
 
 <div>
-    <!-- Page Header -->
-    <!--<section class="page-header">
-        <div class="page-header-content">
-            <h1>News &amp; Events</h1>
-            <div class="breadcrumb">
-                <a href="/" wire:navigate>Home</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>News &amp; Events</span>
-            </div>
-        </div>
-    </section>-->
-
     <!-- Filters + Grid -->
     <section class="news-events-section">
         <div class="news-events-wrap">
@@ -40,24 +28,21 @@
 
             <div class="news-events-grid" wire:loading.class="is-loading">
                 @forelse ($posts as $post)
-                    <a href="{{ route('news-events.show', $post['id']) }}" wire:navigate class="post-card">
-                        <div class="post-thumb post-thumb-{{ $post['type'] }}">
-                            <i class="fas {{ $post['icon'] }}"></i>
-                            <span class="post-type-badge post-type-{{ $post['type'] }}">
-                                {{ $post['type'] === 'event' ? 'Event' : 'News' }}
-                            </span>
+                    <a href="{{ route('news-events.show', $post['slug']) }}" wire:navigate class="post-card">
+                        <div class="post-image">
+                            <img src="{{ asset('storage/media/posts/' . $post->assoc_image) }}" alt="{{ $post->title }}" style="width: 100%; height: 250px; object-fit: cover;">
                         </div>
                         <div class="post-body">
-                            <span class="post-date"><i class="far fa-calendar"></i> {{ $post['date'] }}</span>
+                            <span class="post-date"><i class="far fa-calendar"></i> {{ \Carbon\Carbon::parse($post['created_at'])->format('d-M-Y H:i:A') }}</span>
                             <h3>{{ $post['title'] }}</h3>
-                            <p>{{ $post['excerpt'] }}</p>
+                            <p>{{ Str::words(strip_tags($post['content']), 23, '...') }}</p>
                             <span class="post-readmore">Read More <i class="fas fa-arrow-right"></i></span>
                         </div>
                     </a>
                 @empty
                     <div class="empty-state">
                         <i class="fas fa-newspaper"></i>
-                        <p>Nothing here yet for this filter — check back soon.</p>
+                        <p>No news or evants available — check back soon.</p>
                     </div>
                 @endforelse
             </div>
