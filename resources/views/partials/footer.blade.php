@@ -42,7 +42,26 @@
         Paragraph,
         Bold,
         Italic,
-        Font
+        Underline,
+        Strikethrough,
+        Font,
+        FontSize,
+        Heading,
+        List,
+        ListProperties,
+        TodoList,
+        Table,
+        TableCaption,
+        TableCellProperties,
+        TableColumnResize,
+        TableLayout,
+        TableToolbar,
+        TableProperties,
+        TableScroll,
+        Subscript,
+        Superscript,
+        FontBackgroundColor,
+        RemoveFormat
     } from 'ckeditor5';
 
     const editorEl = document.querySelector('#editor');
@@ -51,12 +70,75 @@
         .create( {
             attachTo: editorEl,
             licenseKey: 'GPL', // Or <YOUR_LICENSE_KEY>
-            plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
+            plugins: [ Essentials, Paragraph, Bold, Italic, Underline, Strikethrough, Font, FontSize, Heading, List, TodoList, ListProperties, Table, TableCaption, TableCellProperties, TableColumnResize, TableLayout, TableToolbar, TableProperties,TableScroll, Subscript, Superscript, FontBackgroundColor, RemoveFormat ],
             toolbar: [
-                'undo', 'redo', '|', 'bold', 'italic', '|',
-                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                'undo', 'redo', '|', 'heading', '|', 'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'removeFormat', '|',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor','|', 'bulletedList', 'numberedList', 'todoList', '|',
+                'insertTable', 'insertTableLayout'
             ],
-            licenseKey: 'GPL'
+            licenseKey: 'GPL',
+            fontFamily: {
+                supportAllValues: true
+            },
+            fontSize: {
+                options: [10, 12, 14, 'default', 18, 20, 22],
+                supportAllValues: true
+            },
+            heading: {
+                options: [
+                    {
+                        model: 'paragraph',
+                        title: 'Paragraph',
+                        class: 'ck-heading_paragraph'
+                    },
+                    {
+                        model: 'heading1',
+                        view: 'h1',
+                        title: 'Heading 1',
+                        class: 'ck-heading_heading1'
+                    },
+                    {
+                        model: 'heading2',
+                        view: 'h2',
+                        title: 'Heading 2',
+                        class: 'ck-heading_heading2'
+                    },
+                    {
+                        model: 'heading3',
+                        view: 'h3',
+                        title: 'Heading 3',
+                        class: 'ck-heading_heading3'
+                    },
+                    {
+                        model: 'heading4',
+                        view: 'h4',
+                        title: 'Heading 4',
+                        class: 'ck-heading_heading4'
+                    },
+                    {
+                        model: 'heading5',
+                        view: 'h5',
+                        title: 'Heading 5',
+                        class: 'ck-heading_heading5'
+                    },
+                    {
+                        model: 'heading6',
+                        view: 'h6',
+                        title: 'Heading 6',
+                        class: 'ck-heading_heading6'
+                    }
+                ]
+            },
+            list: {
+                properties: {
+                    styles: true,
+                    startIndex: true,
+                    reversed: true
+                }
+            },
+            table: {
+                contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
+            }
         } )
         .then( editor => {
             window.editor = editor;
