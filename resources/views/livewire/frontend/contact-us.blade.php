@@ -5,40 +5,31 @@
         @endpush
     @endonce
 
-    <!-- Page Header -->
-    <!--<section class="page-header">
-        <div class="page-header-content">
-            <h1>Contact Us</h1>
-            <div class="breadcrumb">
-                <a href="/" wire:navigate>Home</a>
-                <i class="fas fa-chevron-right"></i>
-                <span>Contact Us</span>
-            </div>
-        </div>
-    </section>-->
-
     <!-- Contact Cards -->
     <section class="contact-cards-section">
         <div class="contact-cards-grid">
             <div class="contact-card">
                 <div class="icon"><i class="fas fa-phone"></i></div>
                 <h3>Call Us</h3>
-                <a href="tel:+918888888888">+254722514846</a>
+                <a href="tel:{{$contact->phone}}">{{$contact->phone}}</a> or
+                <a href="tel:{{$contact->phone_2}}">{{$contact->phone_2}}</a>
             </div>
             <div class="contact-card">
                 <div class="icon"><i class="fas fa-envelope"></i></div>
                 <h3>Email Us</h3>
-                <a href="mailto:websupport@justdial.com">info@greenlineholdings.co.ke</a>
+                <a href="mailto:{{$contact->email}}">{{$contact->email}}</a>
+                <a href="mailto:{{$contact->email_2}}">{{$contact->email_2}}</a>
+                <a href="mailto:{{$contact->email_3}}">{{$contact->email_3}}</a>
             </div>
             <div class="contact-card">
                 <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
                 <h3>Visit Us</h3>
-                <p>Mombasa, Kenya, Taiyebi Building, Along Nkurumah Rd</p>
+                <p>{{$contact->office_location}}</p>
             </div>
             <div class="contact-card">
-                <div class="icon"><i class="fas fa-clock"></i></div>
-                <h3>Working Hours</h3>
-                <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                <div class="icon"><i class="fas fa-envelope"></i></div>
+                <h3>Postal Address</h3>
+                <p>{{$contact->postal_address}}</p>
             </div>
         </div>
     </section>
@@ -58,11 +49,11 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+                        <input type="tel" id="phone" name="phone" placeholder="+2547 xxx xxx">
                     </div>
                     <div class="form-group">
                         <label for="service">Service Needed</label>
@@ -77,15 +68,15 @@
                     </div>
                     <div class="form-group full">
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your shipment..." required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
                     </div>
                     <button type="submit" class="cta-button">Send Message</button>
                 </form>
             </div>
 
             <div class="sidebar-card">
-                <h3>Why Reach Out?</h3>
-                <p>Whether you need a quick freight quote or help untangling a customs hold, our team responds personally — no automated runaround.</p>
+                <h3>Working Hours</h3>
+                <p>Available at a time convenient for you</p>
                 <ul class="sidebar-hours">
                     <li><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></li>
                     <li><span>Saturday</span><span>9:00 AM - 2:00 PM</span></li>
@@ -97,12 +88,12 @@
 
     <!-- Google Map Section -->
     <section class="map-section">
-        <iframe
-            src="https://maps.google.com/maps?q=Malad%20West%2C%20Mumbai%2C%20Maharashtra%2C%20India&t=&z=14&ie=UTF8&output=embed"
+       <iframe
+            src="https://maps.google.com/maps?q=-4.062821921188377,39.672972248022745&t=&z=15&ie=UTF8&output=embed"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Regal Solution location map">
+            title="Greenline Holdings location map">
         </iframe>
     </section>
 </div>

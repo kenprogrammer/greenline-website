@@ -67,6 +67,29 @@
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-address-book"></i>
+                  <p>
+                    Contacts
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/admin/contact-info" class="nav-link" wire:navigate>
+                      <i class="fas fa-phone-alt"></i>&nbsp;
+                      <p>Update Contact Info.</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/admin/social-media" class="nav-link" wire:navigate>
+                      <i class="fas fa-link"></i>&nbsp;
+                      <p>Update Social Media Links</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Submenu 3</p>
                 </a>

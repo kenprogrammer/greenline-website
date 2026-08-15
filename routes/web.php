@@ -23,6 +23,9 @@ use App\Livewire\Content\NewsEvents\ListPosts;
 use App\Livewire\Content\NewsEvents\AddPost;
 use App\Livewire\Content\NewsEvents\EditPost;
 use App\Livewire\Content\Pages\AboutPage;
+use App\Livewire\Content\Contacts\UpdateContactInformation;
+use App\Livewire\Content\Contacts\UpdateSocialMediaLinks;
+use App\Livewire\Content\Contacts\UpdateSocialMediaURL;
 
 use App\Livewire\Frontend\Home;
 use App\Livewire\Frontend\About;
@@ -52,6 +55,9 @@ Route::get('/admin/posts', ListPosts::class)->middleware('auth');
 Route::get('/admin/posts/create', AddPost::class)->middleware('auth');
 Route::get('/admin/posts/edit/{id}', EditPost::class)->middleware('auth');
 Route::get('/admin/about-us', AboutPage::class)->middleware('auth');
+Route::get('/admin/contact-info', UpdateContactInformation::class)->middleware('auth');
+Route::get('/admin/social-media', UpdateSocialMediaLinks::class)->middleware('auth');
+Route::get('/admin/social-media/update-url/{id}',UpdateSocialMediaURL::class)->middleware('auth');
 
 //Auth
 Route::get('login',[LoginController::class,'showLogin']);

@@ -13,18 +13,26 @@
     <div class="top-bar">
         <div class="top-bar-content">
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-pinterest"></i></a>
+                @foreach ($socials as $social)
+                    @if ($social->platform === 'facebook')
+                        <a href="{{ $social->url }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    @elseif($social->platform === 'linkedIn')
+                        <a href="{{ $social->url }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    @elseif($social->platform === 'instagram')
+                        <a href="{{ $social->url }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    @elseif($social->platform === 'x')
+                        <a href="{{ $social->url }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    @elseif($social->platform === 'tikTok')
+                        <a href="{{ $social->url }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    @endif
+                @endforeach
             </div>
             <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +254722514846</span>
-                <span><i class="fas fa-envelope"></i> info@greenlineholdings.co.ke</span>
+                <span><i class="fas fa-phone"></i> {{$contact->phone}}</span>
+                <span><i class="fas fa-envelope"></i> {{$contact->email}}</span>
                 <div class="location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Mombasa,Kenya</span>
+                    <span>{{$contact->office_location}}</span>
                 </div>
             </div>
         </div>
@@ -74,12 +82,21 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Greenline Holdings Ltd</h3>
-                <p>Your trusted partner in clearing and forwarding solutions. We provide comprehensive logistics services with reliability and professionalism.</p>
+                <p>Your trusted partner in clearing & forwarding and transport solutions. We provide comprehensive logistics services with reliability and professionalism.</p>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    @foreach ($socials as $social)
+                        @if ($social->platform === 'facebook')
+                            <a href="{{ $social->url }}"  target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        @elseif($social->platform === 'linkedIn')
+                            <a href="{{ $social->url }}"  target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        @elseif($social->platform === 'instagram')
+                            <a href="{{ $social->url }}"  target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        @elseif($social->platform === 'x')
+                            <a href="{{ $social->url }}"  target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        @elseif($social->platform === 'tikTok')
+                            <a href="{{ $social->url }}"  target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                        @endif
+                    @endforeach
                 </div>
             </div>
 
@@ -108,9 +125,9 @@
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <ul>
-                    <li><a href="tel:+918888888888"><i class="fas fa-phone"></i> +254722514846</a></li>
-                    <li><a href="mailto:info@greenlineholdings.co.ke"><i class="fas fa-envelope"></i> info@greenlineholdings.co.ke</a></li>
-                    <li><a href="/contact"><i class="fas fa-map-marker-alt"></i> Mombasa-Kenya, Taiyebi Building</a></li>
+                    <li><a href="tel:+918888888888"><i class="fas fa-phone"></i> {{$contact->phone}}</a></li>
+                    <li><a href="mailto:info@greenlineholdings.co.ke"><i class="fas fa-envelope"></i> {{$contact->email}}</a></li>
+                    <li><a href="/contact"><i class="fas fa-map-marker-alt"></i>{{$contact->office_location}}</a></li>
                     <li><a href="#"><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</a></li>
                 </ul>
             </div>
