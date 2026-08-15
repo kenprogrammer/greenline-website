@@ -26,7 +26,7 @@
          
           <li class="nav-item">
             <a href="/admin/home" class="nav-link" wire:navigate>
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
               </p>
@@ -43,25 +43,25 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/admin/banners" class="nav-link" wire:navigate>
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-images nav-icon"></i>
                   <p>Banners</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/admin/services" class="nav-link" wire:navigate>
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-tint nav-icon"></i>
                   <p>Services</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/admin/about-us" class="nav-link" wire:navigate>
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-building nav-icon"></i>
                   <p>About Us</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/admin/posts" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-bullhorn nav-icon"></i>
                   <p>News & Events</p>
                 </a>
               </li>
@@ -88,12 +88,12 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item">
+              <!--<li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Submenu 3</p>
                 </a>
-              </li>
+              </li>-->
             </ul>
           </li>
 
