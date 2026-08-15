@@ -22,6 +22,9 @@ class Services extends Component
         return view('livewire.content.services.services', ['posts' => $posts]);
     }
 
+    /**
+     * Delete post 
+     */
     public function delete($id)
     {
         try{
@@ -52,6 +55,36 @@ class Services extends Component
             ]);
 
             session()->flash('error', 'Unable to delete service. Please try again.');
+        }
+    }
+
+    /**
+     * Publish post 
+     */
+    public function publish($id)
+    {
+        $post = Post::find($id);
+        $post->published = true;
+
+        if($post->save()){
+            session()->flash('success', 'Post published successfully!');
+        }else{
+            session()->flash('error', 'Unable to publish post. Please try again!');
+        }
+    }
+
+    /**
+     * Unpublish post 
+     */
+    public function unpublish($id)
+    {
+        $post = Post::find($id);
+        $post->published = false;
+
+        if($post->save()){
+            session()->flash('success', 'Post unpublished successfully!');
+        }else{
+            session()->flash('error', 'Unable to unplish post. Please try again!');
         }
     }
 }

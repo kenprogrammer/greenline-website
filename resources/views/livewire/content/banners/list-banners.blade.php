@@ -72,8 +72,8 @@
                                     <span class="badge draft">Hidden</span>
                                 @endif
                             </td>
-                            <td>{{\Carbon\Carbon::parse($banner->created_at)->format('d-m-Y h:m:A')}}</td>
-                            <td>{{\Carbon\Carbon::parse($banner->updated_at)->format('d-m-Y h:m:A')}}</td>
+                            <td>{{\Carbon\Carbon::parse($banner->created_at)->format('d-m-Y h:m A')}}</td>
+                            <td>{{\Carbon\Carbon::parse($banner->updated_at)->format('d-m-Y h:m A')}}</td>
                             <td>
                               <div class="dropdown">
                                     <button class="btn btn-default dropdown-toggle" type="button"
