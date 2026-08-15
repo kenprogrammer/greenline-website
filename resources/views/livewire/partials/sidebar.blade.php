@@ -26,9 +26,9 @@
          
           <li class="nav-item">
             <a href="/admin/home" class="nav-link" wire:navigate>
-              <i class="nav-icon fas fa-home"></i>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Home
+                Dashboard
               </p>
             </a>
           </li>

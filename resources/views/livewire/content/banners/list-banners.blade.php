@@ -54,7 +54,7 @@
                             <td>{{\Carbon\Carbon::parse($banner->created_at)->format('d-m-Y')}}</td>
                             <td>{{\Carbon\Carbon::parse($banner->updated_at)->format('d-m-Y')}}</td>
                             <td>
-                              <a href="/banners/edit/{{$banner->banner_id}}" class="btn btn-success" role="button" wire:navigate><i class="fa fa-edit" aria-hidden="true">&nbsp;</i>Edit</a>
+                              <a href="/admin/banners/edit/{{$banner->banner_id}}" class="btn btn-success" role="button" wire:navigate><i class="fa fa-edit" aria-hidden="true">&nbsp;</i>Edit</a>
                             </td>
                             <td>
                               <a href="#" class="btn btn-danger" role="button" wire:click="delete({{$banner->id}})" wire:confirm="Are you sure you want to delete this banner?"><i class="fa fa-trash" aria-hidden="true">&nbsp;</i>Delete</a>

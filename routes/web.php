@@ -46,14 +46,14 @@ Route::get('/services-show/{slug}', ServicesShow::class)->name('services.show');
  */
 // Services
 Route::get('/admin/banners', ListBanners::class)->middleware('auth');
-Route::get('/admin/banners/create', AddBanner::class)->middleware('auth');
-Route::get('/banners/edit/{banner_id}',EditBanner::class)->middleware('auth');
+Route::get('/admin/banners/create', AddBanner::class)->name('admin.banners.create')->middleware('auth');
+Route::get('/admin/banners/edit/{banner_id}',EditBanner::class)->name('admin.banners.edit')->middleware('auth');
 Route::get('/admin/services', Services::class)->middleware('auth');
 Route::get('/admin/services/create', AddService::class)->middleware('auth');
 Route::get('/admin/services/edit/{id}', EditService::class)->middleware('auth');
 Route::get('/admin/posts', ListPosts::class)->middleware('auth');
-Route::get('/admin/posts/create', AddPost::class)->middleware('auth');
-Route::get('/admin/posts/edit/{id}', EditPost::class)->middleware('auth');
+Route::get('/admin/posts/create', AddPost::class)->name('admin.posts.create')->middleware('auth');
+Route::get('/admin/posts/edit/{id}', EditPost::class)->name('admin.posts.edit')->middleware('auth');
 Route::get('/admin/about-us', AboutPage::class)->middleware('auth');
 Route::get('/admin/contact-info', UpdateContactInformation::class)->middleware('auth');
 Route::get('/admin/social-media', UpdateSocialMediaLinks::class)->middleware('auth');
