@@ -26,7 +26,9 @@
                 </div>
 
                 <div class="post-content">
-                   {!! $post['content'] !!}
+                   <div class="ckeditor-content">
+                        {!! $post['content'] !!}
+                   </div>
                 </div>
 
                 <div class="post-share">

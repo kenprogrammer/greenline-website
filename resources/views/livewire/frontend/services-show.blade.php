@@ -12,7 +12,9 @@
                 <h1 class="post-title">{{ $post->title }}</h1>
 
                 <div class="post-content">
-                    {!! $post->content !!}
+                    <div class="ckeditor-content">
+                        {!! $post->content !!}
+                   </div>
                 </div>
 
                 <div class="post-share">

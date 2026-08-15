@@ -280,3 +280,19 @@
         text-align: center;
     }
 }
+
+.ckeditor-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+.ckeditor-content table, 
+.ckeditor-content th, 
+.ckeditor-content td {
+    border: 1px solid #d1d5db; /* Light gray border */
+}
+.ckeditor-content th, 
+.ckeditor-content td {
+    padding: 0.5rem;
+    text-align: left;
+}
