@@ -1,4 +1,17 @@
 <div>
+    <style>
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge.published { background: rgba(39, 174, 96, 0.12); color: #219150; }
+        .badge.draft { background: rgba(243, 156, 18, 0.15); color: #b9770e; }
+    </style>
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -38,6 +51,7 @@
                 <tr>
                     <th></th>
                     <th>Title</th>
+                    <th>Status</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th></th>
@@ -49,6 +63,13 @@
                         <tr>
                             <td><img src="{{ asset('storage/media/posts/'.$post->assoc_image) }}" class="elevation-2" height="40" width="60" alt="Image"></td>
                             <td>{{$post->title}}</td>
+                            <td>
+                                @if ($post->published)
+                                    <span class="badge published">Active</span>
+                                @else
+                                    <span class="badge draft">Draft</span>
+                                @endif
+                            </td>
                             <td>{{\Carbon\Carbon::parse($post->created_at)->format('d-m-Y h:m A')}}</td>
                             <td>{{\Carbon\Carbon::parse($post->updated_at)->format('d-m-Y h:m A')}}</td>
                             <td>

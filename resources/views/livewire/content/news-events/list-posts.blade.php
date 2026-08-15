@@ -1,4 +1,17 @@
 <div>
+    <style>
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge.published { background: rgba(39, 174, 96, 0.12); color: #219150; }
+        .badge.draft { background: rgba(243, 156, 18, 0.15); color: #b9770e; }
+    </style>
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -39,9 +52,9 @@
                     <th></th>
                     <th>Title</th>
                     <th>Post Type</th>
+                    <th>Status</th>
                     <th>Created At</th>
                     <th>Updated At</th>
-                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -49,20 +62,37 @@
                 @if(!$posts->isEmpty())
                     @foreach($posts as $post)
                         <tr>
-                            <td><img src="{{ asset('storage/media/posts/'.$post->assoc_image) }}" class="elevation-2" height="40" width="60" alt="Banner"></td>
+                            <td><img src="{{ asset('storage/media/posts/'.$post->assoc_image) }}" class="elevation-2" height="40" width="60" alt="Image"></td>
                             <td>{{$post->title}}</td>
                             @if($post->post_type==='news')
                             <td><span class="badge badge-success">News</span></td>
                             @else
                             <td><span class="badge badge-info">Event</span></td>
                             @endif
-                            <td>{{\Carbon\Carbon::parse($post->created_at)->format('d-m-Y')}}</td>
-                            <td>{{\Carbon\Carbon::parse($post->updated_at)->format('d-m-Y')}}</td>
                             <td>
-                              <a href="/admin/posts/edit/{{$post->id}}" class="btn btn-success" role="button" wire:navigate><i class="fa fa-edit" aria-hidden="true">&nbsp;</i>Edit</a>
+                                @if ($post->published)
+                                    <span class="badge published">Active</span>
+                                @else
+                                    <span class="badge draft">Draft</span>
+                                @endif
                             </td>
+                            <td>{{\Carbon\Carbon::parse($post->created_at)->format('d-m-Y h:m A')}}</td>
+                            <td>{{\Carbon\Carbon::parse($post->updated_at)->format('d-m-Y h:m A')}}</td>
                             <td>
-                              <a href="#" class="btn btn-danger" role="button" wire:click="delete({{$post->id}})" wire:confirm="Are you sure you want to delete this post?"><i class="fa fa-trash" aria-hidden="true">&nbsp;</i>Delete</a>
+                              <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button"
+                                      data-toggle="dropdown">Action
+                                      <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="/admin/posts/edit/{{$post->id}}" wire:navigate><i class="fa fa-edit" aria-hidden="true">&nbsp;</i>Edit</a></li>
+                                        <li><a class="dropdown-item" href="#" wire:click="delete({{$post->id}})" wire:confirm="Are you sure you want to delete this post?"><i class="fa fa-trash" aria-hidden="true">&nbsp;</i>Delete</a></li>
+                                        @if($post->published==1)
+                                        <li><a class="dropdown-item" href="#" wire:click="unpublish({{$post->id}})" wire:confirm="Are you sure you want to unpublish this post?"><i class="fas fa-window-close" aria-hidden="true">&nbsp;</i>Unpublish</a></li>
+                                        @else
+                                        <li><a class="dropdown-item" href="#" wire:click="publish({{$post->id}})" wire:confirm="Are you sure you want to publish this post?"><i class="fas fa-window-restore" aria-hidden="true">&nbsp;</i>Publish</a></li>
+                                        @endif
+                                    </ul>
+                              </div>
                             </td>
                         </tr>
                     @endforeach
