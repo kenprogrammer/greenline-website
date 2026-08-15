@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greenline Holdings Company Ltd - Clearing And Forwarding Solutions</title>
+    <title>Greenline Holdings Company Ltd - Clearing, Forwarding, and Transportation Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
     @stack('page-styles')
@@ -113,22 +113,22 @@
 
             <div class="footer-section">
                 <h3>Our Services</h3>
+                @if(!$services->isEmpty())
                 <ul>
-                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Sea Freight</a></li>
-                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Air Freight</a></li>
-                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Customs Clearance</a></li>
-                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Warehousing</a></li>
-                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                    @foreach($services as $service)
+                    <li><a href="{{ route('services.show', $service->slug) }}" wire:navigate><i class="fas fa-chevron-right"></i> {{ $service->title }}</a></li>
+                    @endforeach
                 </ul>
+                @endif
             </div>
 
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <ul>
-                    <li><a href="tel:+918888888888"><i class="fas fa-phone"></i> {{$contact->phone}}</a></li>
-                    <li><a href="mailto:info@greenlineholdings.co.ke"><i class="fas fa-envelope"></i> {{$contact->email}}</a></li>
-                    <li><a href="/contact"><i class="fas fa-map-marker-alt"></i>{{$contact->office_location}}</a></li>
-                    <li><a href="#"><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</a></li>
+                    <li><a href="tel:{{$contact->phone}}"><i class="fas fa-phone"></i> {{$contact->phone}}</a></li>
+                    <li><a href="mailto:{{$contact->email}}"><i class="fas fa-envelope"></i> {{$contact->email}}</a></li>
+                    <li><a href="/contact" wire:navigate><i class="fas fa-map-marker-alt"></i>{{$contact->office_location}}</a></li>
+                    <li><a href="/contact" wire:navigate><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 6:00 PM</a></li>
                 </ul>
             </div>
         </div>
