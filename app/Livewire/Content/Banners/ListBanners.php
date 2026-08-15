@@ -13,11 +13,14 @@ class ListBanners extends Component
 
     public function render()
     {
-        $banners = Banner::wherePublished(true)->paginate(10);
+        $banners = Banner::paginate(10);
 
         return view('livewire.content.banners.list-banners',['banners'=>$banners]);
     }
 
+    /**
+     * Delete banner 
+     */
     public function delete($id)
     {
         try{
@@ -53,6 +56,36 @@ class ListBanners extends Component
             ]);
 
             session()->flash('error', 'Unable to delete banner. Please try again!');
+        }
+    }
+
+    /**
+     * Publish banner 
+     */
+    public function publish($id)
+    {
+        $banner = Banner::find($id);
+        $banner->published = true;
+
+        if($banner->save()){
+            session()->flash('success', 'Banner published successfully!');
+        }else{
+            session()->flash('error', 'Unable to publish banner. Please try again!');
+        }
+    }
+
+    /**
+     * Unpublish banner 
+     */
+    public function unpublish($id)
+    {
+        $banner = Banner::find($id);
+        $banner->published = false;
+
+        if($banner->save()){
+            session()->flash('success', 'Banner unpublished successfully!');
+        }else{
+            session()->flash('error', 'Unable to unplish banner. Please try again!');
         }
     }
 }
