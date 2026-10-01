@@ -42,10 +42,10 @@
     <nav x-data="{ mobileOpen: false }">
         <div class="nav-content">
             <a href="/" class="logo" wire:navigate>
-                <img src="{{ asset('img/logo.png') }}" alt="Logo" width="100" height="65">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo" width="150" height="85">
                 <div>
-                    <div style="font-size: 20px; color:#008000;">Greenline</div>
-                    <div style="font-size: 16px; font-weight: normal; color: #666;">Holdings Company Ltd</div>
+                    <div style="font-size: 35px; color:#008000;">Greenline Holdings</div>
+                    <div style="font-size: 20px; font-weight: normal; color: #666;">Company Ltd</div>
                 </div>
             </a>
             <ul class="nav-links" :class="{ 'is-open': mobileOpen }">
@@ -81,7 +81,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Greenline Holdings Ltd</h3>
+                <span style="font-size: 30px; color:orange;">Greenline Holdings Ltd</span>
                 <p>Your trusted partner in clearing & forwarding and transport solutions. We provide comprehensive logistics services with reliability and professionalism.</p>
                 <div class="footer-social">
                     @foreach ($socials as $social)
@@ -101,7 +101,7 @@
             </div>
 
             <div class="footer-section">
-                <h3>Quick Links</h3>
+                <span style="font-size: 30px; color:orange;">Quick Links</span>
                 <ul>
                     <li><a href="/" wire:navigate><i class="fas fa-chevron-right"></i> Home</a></li>
                     <li><a href="{{ request()->is('/') ? '#services' : '/#services' }}"><i class="fas fa-chevron-right"></i> Services</a></li>
@@ -112,7 +112,7 @@
             </div>
 
             <div class="footer-section">
-                <h3>Our Services</h3>
+                <span style="font-size: 30px; color:orange;">Our Services</span>
                 @if(!$services->isEmpty())
                 <ul>
                     @foreach($services as $service)
@@ -123,7 +123,7 @@
             </div>
 
             <div class="footer-section">
-                <h3>Contact Info</h3>
+                <span style="font-size: 30px; color:orange;">Contact Info</span>
                 <ul>
                     <li><a href="tel:{{$contact->phone}}"><i class="fas fa-phone"></i> {{$contact->phone}}</a></li>
                     <li><a href="mailto:{{$contact->email}}"><i class="fas fa-envelope"></i> {{$contact->email}}</a></li>

@@ -17,11 +17,11 @@
                     <div class="hero-content">
 
                         @if (!empty($banner->title))
-                            <h2>{{ $banner->title }}</h2>
+                            <span style="font-size: 65px; color:orange;">{{ $banner->title }}</span><br>
                         @endif
 
                         @if (!empty($banner->description))
-                            <h1>{{ $banner->description }}</h1>
+                            <span style="font-size: 45px; color:red;">{{ $banner->description }}</span><br><br>
                         @endif
 
                         @if ($banner->links_to !== 'none')
